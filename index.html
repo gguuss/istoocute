@@ -1,0 +1,132 @@
+<html>
+<head>
+	<meta itemprop="image" content=""/>
+  <meta itemprop="name" content="Help!  I'm trapped in a code factory."/>
+  <meta itemprop="description" content="A blog about programming, robots, technology, and other wonderful things."/>
+  
+  <!-- External style / scripts -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <link rel="stylesheet" type="text/css" 
+  	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/start/jquery-ui.min.css">
+
+  <script src="js/app.js"></script>
+
+  <!-- Site style -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="icon" type="image/png" href="http://istoocute.com/images/i2cicon.png" />
+    	
+	<!-- Google Web fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Marmelad' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Merienda' rel='stylesheet' type='text/css'>
+
+	<title>istoocute.com: OMG it is TOO CUTE!!!</title>
+</head>
+<body>
+	<div class="userbar">
+    <span id="signin">
+     <span id="cuteMessage">Hey, lover of cuteness! Sign in with Google+ to 
+     		improve your experience.</span>
+     <span id="gConnect">
+        <span class="g-signin"
+            data-scope="https://www.googleapis.com/auth/plus.login"
+            data-requestvisibleactions="http://schemas.google.com/AddActivity"
+            data-clientId="YOUR_CLIENT_ID"
+            data-callback="onSigninCallback"
+            data-theme="dark"
+            data-cookiepolicy="single_host_origin">
+        </span>
+      </span>
+      <span id="profileArea" style="display:none"></span>
+      <span id="authButtons" style="display:none">
+      	<img id="disconnect" src="images/disconnect.png" alt="Disconnect" 
+      			title="Disconnect" height=25 onClick="helper.showDisconnectDialog()"
+      			></img>
+      </span>
+    </span>
+	</div>
+	<div class="topHeader">			
+		<h1 class="cutefont">Is too cute!</h1>
+		<h3>A gallery of super cute stuff.</h3>			
+	</div>
+	<div class="main">
+		<div class="entry" id="accordion" height="500px">
+			<h3>
+				Here is a cute picture of a puppy falling asleep.
+			</h3>
+			<div>
+				<p>
+					<img src="images/cutepup.gif" height="250px">
+				</p>
+			</div>
+		</div>
+		<div class="entry" id="accordion2" height="500px">
+			<h3>
+				Here is a cute picture of a puppy who wants food.
+			</h3>
+			<div>
+				<p>
+					<img src="images/pleasepup.png" height="250px">
+				</p>
+			</div>
+		</div>
+	</div>
+	<div id="disconnectDialog" title="Disconnect" style="display:none">
+  	<p>Please don't break up with us!</p>
+	</div>
+	<div class="awesomeBar">
+		<input class="mode" name="mode" type="radio" value="good">Good</input>
+		<input class="mode" name="mode" type="radio" value="better">Better</input>
+		<input class="mode" name="mode" type="radio" value="awesome">Awesome</input>
+	</div>
+	<div class="footer" id="footer">
+		Created by Google+ Developer Relations, 2013. All assets licensed under the 
+		<a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0 license</a>.
+	</div>
+</body>
+<script type="text/javascript">
+/**
+	* Load the Google+ script
+	*/
+	(function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/auth:plusone.js?onload=startApp';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+
+
+ /**
+  * jQuery initialization
+  **/
+	$(function() {
+		// UI elements
+		$('#accordion').accordion();
+		$('#accordion2').accordion();
+
+		$('#disconnect').hover(
+		  function () {
+		    $(this).attr('src', 'images/disconnect_hover.png');
+		  },
+		  function () {
+		    $(this).attr('src', 'images/disconnect.png');
+		  }
+		);
+
+		$(window).scroll(function () {
+  		$("#footer").hide();
+		});
+
+		$('.mode').change(function() {
+		  helper.mode = this.value;
+		  console.log(helper.mode);
+		});
+	});
+
+
+  // Global callback handler for signin
+  function onSigninCallback(result){
+    helper.onSigninCallback(result);
+  }
+  </script>
+
+</html>
