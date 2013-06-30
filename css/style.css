@@ -1,52 +1,57 @@
 body {
-	background-color: #333333;
-	width:100%;
-	margin: 0;
+  background-color: #333333;
+  width:100%;
+  margin: 0;
 }
 
 .userbar {
-	height:40px;
-	width: 100%;
-	margin-bottom: 20px;
-	margin-top: 0px;
-	margin-left: 0px;	
-	text-align: right;
-	padding-left: auto;
-	padding-right: 10px;
-	padding-top: 10px;
-	background-color: #555555;
-	color: #DDDDDD;
+  height:45px;
+  width: 100%;
+  margin-bottom: 20px;
+  margin-top: 0px;
+  margin-left: 0px; 
+  text-align: right;
+  padding-left: auto;
+  padding-right: 10px;
+  padding-top: 10px;
+  background-color: #555555;
+  color: #DDDDDD;
 }
 
 #profileArea {
-	float:left;
-	width: 300px;
-	margin-top: 5px;
-	margin-left: 10px;
-	text-align: left;
-	vertical-align: middle;
+  float:left;
+  width: 300px;
+  margin-top: 5px;
+  margin-left: 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+table {
+  color:#DDDDDD;
 }
 
 #cuteMessage {
-	margin-top: 5px;
-	margin-left: 10px;
-	float:left;
+  margin-top: 5px;
+  margin-left: 10px;
+  float:left;
 }
 
 #gConnect {
-	float:right;
-	margin-right: 10px;
+  float:right;
+  margin-right: 10px;
 }
 
 #disconnect {
-	cursor: pointer;
-	margin-top: 2px;
-	margin-right: 10px;
-	float:right;
+  cursor: pointer;
+  margin-top: 2px;
+  margin-right: 10px;
+  float:right;
+  display:none;
 }
 
 .topHeader {
-	border-radius: 10px;
+  border-radius: 10px;
   width: 700px;
   height: 120px;
   margin-left: auto;
@@ -57,7 +62,7 @@ body {
 }
 
 .main {
-	border-radius: 5px;
+  border-radius: 5px;
   width: 690px;
   margin-left: auto;
   margin-right: auto;
@@ -71,35 +76,31 @@ body {
 }
 
 .entry {
-	margin-bottom: 10px;
-}
-
-.awesomeBar {
-	color: #999999;
+  margin-bottom: 10px;
 }
 
 .footer {
-	height: 35px;
-	background-color: #555555;
-	color: #DDDDDD;
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	margin-top: 10px;
+  height: 35px;
+  background-color: #555555;
+  color: #DDDDDD;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-top: 10px;
 }
 
 h1 {
-	font-family: 'Merienda', cursive;
+  font-family: 'Merienda', cursive;
 }
 
 h3 {
-	font-family: 'Marmelad', sans-serif;
+  font-family: 'Marmelad', sans-serif;
 }
 
 a:link {
-	color:#ff69b4;
+  color:#ff69b4;
 }
 
 a:visited {
-	color:#ff69b4;
+  color:#ff69b4;
 }
