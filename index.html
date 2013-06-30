@@ -1,32 +1,33 @@
+
 <html>
 <head>
-	<meta itemprop="image" content=""/>
+  <meta itemprop="image" content=""/>
   <meta itemprop="name" content="Help!  I'm trapped in a code factory."/>
   <meta itemprop="description" content="A blog about programming, robots, technology, and other wonderful things."/>
-  
+
   <!-- External style / scripts -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-  <link rel="stylesheet" type="text/css" 
-  	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/start/jquery-ui.min.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <link rel="stylesheet" type="text/css"
+    href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/hot-sneaks/jquery-ui.min.css">
 
   <script src="js/app.js"></script>
 
   <!-- Site style -->
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="icon" type="image/png" href="http://istoocute.com/images/i2cicon.png" />
-    	
-	<!-- Google Web fonts -->
-	<link href='http://fonts.googleapis.com/css?family=Marmelad' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Merienda' rel='stylesheet' type='text/css'>
 
-	<title>istoocute.com: OMG it is TOO CUTE!!!</title>
+  <!-- Google Web fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Marmelad' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Merienda' rel='stylesheet' type='text/css'>
+
+  <title>istoocute.com: OMG it is TOO CUTE!!!</title>
 </head>
 <body>
-	<div class="userbar">
+  <div class="userbar">
     <span id="signin">
-     <span id="cuteMessage">Hey, lover of cuteness! Sign in with Google+ to 
-     		improve your experience.</span>
+     <span id="cuteMessage">Hey, lover of cuteness! Sign in with Google+ to
+         improve your experience.</span>
      <span id="gConnect">
         <span class="g-signin"
             data-scope="https://www.googleapis.com/auth/plus.login"
@@ -38,57 +39,58 @@
         </span>
       </span>
       <span id="profileArea" style="display:none"></span>
-      <span id="authButtons" style="display:none">
-      	<img id="disconnect" src="images/disconnect.png" alt="Disconnect" 
-      			title="Disconnect" height=25 onClick="helper.showDisconnectDialog()"
-      			></img>
+      <span id="authButtons" class= style="display:none">
+        <img id="disconnect" height="25px" src="images/disconnect.png" alt="Disconnect"
+            title="Disconnect" onClick="helper.showDisconnectDialog()"
+            ></img>
       </span>
     </span>
-	</div>
-	<div class="topHeader">			
-		<h1 class="cutefont">Is too cute!</h1>
-		<h3>A gallery of super cute stuff.</h3>			
-	</div>
-	<div class="main">
-		<div class="entry" id="accordion" height="500px">
-			<h3>
-				Here is a cute picture of a puppy falling asleep.
-			</h3>
-			<div>
-				<p>
-					<img src="images/cutepup.gif" height="250px">
-				</p>
-			</div>
-		</div>
-		<div class="entry" id="accordion2" height="500px">
-			<h3>
-				Here is a cute picture of a puppy who wants food.
-			</h3>
-			<div>
-				<p>
-					<img src="images/pleasepup.png" height="250px">
-				</p>
-			</div>
-		</div>
-	</div>
-	<div id="disconnectDialog" title="Disconnect" style="display:none">
-  	<p>Please don't break up with us!</p>
-	</div>
-	<div class="awesomeBar">
-		<input class="mode" name="mode" type="radio" value="good">Good</input>
-		<input class="mode" name="mode" type="radio" value="better">Better</input>
-		<input class="mode" name="mode" type="radio" value="awesome">Awesome</input>
-	</div>
-	<div class="footer" id="footer">
-		Created by Google+ Developer Relations, 2013. All assets licensed under the 
-		<a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0 license</a>.
-	</div>
+  </div>
+  <div class="topHeader">
+    <h1 class="cutefont">Is too cute!</h1>
+    <h3>A gallery of super cute stuff.</h3>
+  </div>
+  <div class="main">
+    <div class="entry" id="accordion" height="500px">
+      <h3>
+        Here is a cute picture of a puppy falling asleep.
+      </h3>
+      <div>
+        <p>
+          <img src="images/cutepup.gif" height="250px">
+        </p>
+      </div>
+    </div>
+    <div class="entry" id="accordion2" height="500px">
+      <h3>
+        Here is a cute picture of a puppy who wants food.
+      </h3>
+      <div>
+        <p>
+          <img src="images/pleasepup.png" height="250px">
+        </p>
+      </div>
+    </div>
+  </div>
+  <div id="disconnectDialog" title="Disconnect" style="display:none">
+    <p>Please don't break up with us!</p>
+  </div>
+  <div class="push">
+    <a href="#good">Good XP</a>
+    <a href="#better">Better XP</a>
+    <a href="#awesome">Awesome XP</a>
+  </div>
+  <div class="footer" id="footer">
+    Created by Google+ Developer Relations, 2013. All assets licensed under the
+    <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0 license</a>.
+  </div>
 </body>
+
 <script type="text/javascript">
 /**
-	* Load the Google+ script
-	*/
-	(function() {
+  * Load the Google+ JavaScript client libraries.
+  */
+  (function() {
     var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
     po.src = 'https://apis.google.com/js/auth:plusone.js?onload=startApp';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
@@ -96,37 +98,52 @@
 
 
  /**
-  * jQuery initialization
+  * Initialize jQuery and jQueryUI objects.
   **/
-	$(function() {
-		// UI elements
-		$('#accordion').accordion();
-		$('#accordion2').accordion();
+  $(function() {
+    // UI elements
+    $('#accordion').accordion();
+    $('#accordion2').accordion();
 
-		$('#disconnect').hover(
-		  function () {
-		    $(this).attr('src', 'images/disconnect_hover.png');
-		  },
-		  function () {
-		    $(this).attr('src', 'images/disconnect.png');
-		  }
-		);
+    $('#disconnect').hover(
+      function () {
+        $(this).attr('src', 'images/disconnect_hover.png');
+      },
+      function () {
+        $(this).attr('src', 'images/disconnect.png');
+      }
+    );
 
-		$(window).scroll(function () {
-  		$("#footer").hide();
-		});
-
-		$('.mode').change(function() {
-		  helper.mode = this.value;
-		  console.log(helper.mode);
-		});
-	});
+    $(window).scroll(function () {
+      $("#footer").hide();
+    });
+  });
 
 
-  // Global callback handler for signin
+/**
+  * Global callback handler for signin
+  *
+  * This function passes the data from the Google+ Sign-In callback
+  * to the helper module.
+  *
+  * @param result Stores information about the result from the Google+
+  *        Sign-In button such as the OAuth v2 access token.
+  */
   function onSigninCallback(result){
     helper.onSigninCallback(result);
   }
-  </script>
+
+/**
+  * Tracking with Google Analytics
+  */
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'XX-XXXXXX-X', 'istoocute.com');
+  ga('send', 'pageview');
+
+</script>
 
 </html>

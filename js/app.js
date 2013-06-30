@@ -16,11 +16,8 @@ var helper = (function() {
     clientId :'YOUR_CLIENT_ID',
     BASE_API_PATH: 'plus/v1/',
     apiBase: '/api',
-    rootUrl: '',
     authResult: '',
-    isFree: false,
     user: '',
-    topRecipients: '',
     mode: 'good',
 
     /**
@@ -35,8 +32,7 @@ var helper = (function() {
           console.log(authResult);
 
           // Setup the base url for API calls
-          this.setBaseUrl();
-          this.authResult = authResult;
+          helper.authResult = authResult;
 
           // Success.
           // Hide the sign-in button
@@ -46,6 +42,11 @@ var helper = (function() {
           gapi.client.load('plus','v1', function(){
             helper.connect();
           });
+
+          helper.mode = document.URL.substring(document.URL.indexOf('#') + 1);
+          if (helper.mode.indexOf('/') > 0){
+            helper.mode = 'good';
+          }
 
         } else if (authResult['error']) {
           // You can handle various error conditions here
@@ -64,8 +65,7 @@ var helper = (function() {
           helper.user = result;
           $('#profileArea').hide();
           $('#cuteMessage').hide();
-          
-          
+
           if (helper.mode == 'good'){
             $('#profileArea').html('Signed in as ' + helper.user.displayName + '!')
           }else{
@@ -95,9 +95,10 @@ var helper = (function() {
      * @param {Object} The user object.
      */
     getProfileHTML: function(user){
-      var html = '<a target="_blank" href="' + user.url + '">' + '<img src="' +
+      var html = '<table><td><a target="_blank" href="' + user.url + '">' + '<img src="' +
           user.image.url + '" alt="' + user.displayName + '" title="' +
-          user.displayName + '" height="35" />' + '</a> ' +  user.displayName;
+          user.displayName + '" height="35" />' + '</a></td><td>' + 'Signed in' +
+          ' as:<br>' + user.displayName + '</td></tr></table>';
       return html;
     },
 
@@ -145,10 +146,6 @@ var helper = (function() {
           console.log(e);
         }
       });
-    },
-
-    setBaseUrl: function(){
-      this.rootUrl = window.location.origin;
     }
   };
 })();
