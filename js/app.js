@@ -66,22 +66,13 @@ var helper = (function() {
           $('#profileArea').hide();
           $('#cuteMessage').hide();
 
-          if (helper.mode == 'good'){
-            $('#profileArea').html('Signed in as ' + helper.user.displayName + '!')
-          }else{
-            var html = helper.getProfileHTML(result);
-            $('#profileArea').html(html);
-          }
+          var html = helper.getProfileHTML(result);
+          $('#profileArea').html(html);
 
-          if (helper.mode == 'good' || helper.mode == 'better'){
-            $('#profileArea').css('margin-top', '0px');
-            $('#profileArea').show();
-          }
-          if (helper.mode == 'awesome'){
-            $('#profileArea').css('margin-top', '0px');
-            $('#profileArea' ).show();
-            $('#profileArea' ).effect( 'bounce', null, 500, null);
-          }
+          $('#profileArea').css('margin-top', '0px');
+          $('#profileArea' ).show();
+          $('#profileArea' ).effect( 'bounce', null, 500, null);
+
           setTimeout("$('#disconnect').show()", 600);
 
           $('#authButtons').show();
