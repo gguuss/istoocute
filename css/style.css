@@ -9,7 +9,7 @@ body {
   width: 100%;
   margin-bottom: 20px;
   margin-top: 0px;
-  margin-left: 0px; 
+  margin-left: 0px;
   text-align: right;
   padding-left: auto;
   padding-right: 10px;
@@ -45,6 +45,14 @@ table {
 #disconnect {
   cursor: pointer;
   margin-top: 2px;
+  margin-right: 10px;
+  float:right;
+  display:none;
+}
+
+#camera{
+  cursor: pointer;
+  margin-top: 5px;
   margin-right: 10px;
   float:right;
   display:none;

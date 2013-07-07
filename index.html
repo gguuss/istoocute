@@ -29,20 +29,15 @@
      <span id="cuteMessage">Hey, lover of cuteness! Sign in with Google+ to
          improve your experience.</span>
      <span id="gConnect">
-        <span class="g-signin"
-            data-scope="https://www.googleapis.com/auth/plus.login"
-            data-requestvisibleactions="http://schemas.google.com/AddActivity"
-            data-clientId="YOUR_CLIENT_ID"
-            data-callback="onSigninCallback"
-            data-theme="dark"
-            data-cookiepolicy="single_host_origin">
-        </span>
+        <image id="pre-render" src="images/fake_signin_on.png" onClick="helper.showScopesDialog()"/>
+        <span id="itcsignin"></span>
       </span>
       <span id="profileArea" style="display:none"></span>
       <span id="authButtons" class= style="display:none">
-        <img id="disconnect" height="25px" src="images/disconnect.png" alt="Disconnect"
-            title="Disconnect" onClick="helper.showDisconnectDialog()"
-            ></img>
+        <img id="disconnect" height="25" src="images/disconnect.png" alt="Disconnect"
+            title="Disconnect" onClick="helper.showDisconnectDialog()"></img>
+        <img id="camera" src="images/camera.png" alt="Your Photos"
+            title="Your Photos" onClick="helper.renderPhotos()"></img>
       </span>
     </span>
   </div>
@@ -57,7 +52,7 @@
       </h3>
       <div>
         <p>
-          <img src="images/cutepup.gif" height="250px">
+          <img src="images/cutepup.png" height="250px">
         </p>
       </div>
     </div>
@@ -75,6 +70,21 @@
   <div id="disconnectDialog" title="Disconnect" style="display:none">
     <p>Please don't break up with us!</p>
   </div>
+  <div id="showScopesDialog" title="Choose what you share with us" style="display:none">
+    <p>Connect with us and suggest your own photos!</p>
+    <p>If you want to share your Google Drive files with us, select:
+       <ul><li><b>Google Drive and Google+</b></li></ul>
+    </p>
+    <p>If you just want Google+ for now, select:
+      <ul><li><b>Only Google+</b></li></ul></p>
+    <span id="itcsigninContainer" onClick="helper.dialogSigninClick()">
+      <span id="itcsigninDialog"></span>
+    </span>
+  </div>
+  <div id="photos" title="Look at all these photos!" style="display:none">
+    <p>We found the following  photos</p>
+    <iframe width="480" id="photosArea"></iframe>
+  </div>
   <div class="push">
     <a href="#good">Good XP</a>
     <a href="#better">Better XP</a>
@@ -87,12 +97,16 @@
 </body>
 
 <script type="text/javascript">
-/**
+ /**
   * Load the Google+ JavaScript client libraries.
   */
   (function() {
+    window.___gcfg = {
+        parsetags: 'explicit'
+    };
+
     var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/auth:plusone.js?onload=startApp';
+    po.src = 'https://apis.google.com/js/auth:plusone.js?onload=onPlusOneLoaded';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
   })();
 
@@ -114,14 +128,23 @@
       }
     );
 
+    $('#pre-render').hover(
+      function(){
+        $(this).attr('src','images/fake_signin_off.png');
+      },
+      function(){
+        $(this).attr('src','images/fake_signin_on.png');
+      });
+
     $(window).scroll(function () {
       $("#footer").hide();
     });
+
   });
 
 
-/**
-  * Global callback handler for signin
+ /**
+  * Global callback handler for signin and loading of plusone.js.
   *
   * This function passes the data from the Google+ Sign-In callback
   * to the helper module.
@@ -133,7 +156,11 @@
     helper.onSigninCallback(result);
   }
 
-/**
+  function onPlusOneLoaded(result){
+    helper.initialize();
+  }
+
+ /**
   * Tracking with Google Analytics
   */
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
