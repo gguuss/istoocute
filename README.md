@@ -1,7 +1,7 @@
 istoocute
 =========
 
-A demo site showing a few tricks for improving the sign in experience.
+A demo site showing a few tricks for improving the Google+ sign in experience.
 
 To try the site out:
 
